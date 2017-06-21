@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class Contactor {
+public class Connector {
     private String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private String dbURL = "jdbc:sqlserver://localhost:1433;DatabaseName=";
     private String userName = "sa";
@@ -15,7 +15,14 @@ public class Contactor {
     private Connection conn = null;
     private ResultSet rs = null;
     private PreparedStatement sql = null;
-
+    
+    public Connector(){
+        try {
+            Class.forName(this.driverName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * @function 连接数据库
      * @param dataBaseName
@@ -23,10 +30,9 @@ public class Contactor {
      */
     public Connection connect(String dataBaseName) {
         try {
-            Class.forName(this.driverName);
             this.conn = DriverManager.getConnection(this.dbURL + dataBaseName, this.userName, this.userPwd);
             System.out.println("Coneection complished!");
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return this.conn;

@@ -29,6 +29,7 @@ public class LogFrame extends JFrame implements ActionListener{
         this.setResizable(false);
         this.setVisible(true);
         this.loadComponet();    
+        this.setLocationRelativeTo(null);
     }
 
     public void loadComponet() {

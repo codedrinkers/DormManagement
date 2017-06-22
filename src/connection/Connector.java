@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.Fix;
+
 import model.Management;
-import model.Student;
+
 
 public class Connector {
 	public static final String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -72,9 +72,9 @@ public class Connector {
 	 * 通用连接方法,返回一个List<Map>，Map中存放的是列名和值。
 	 * 
 	 */
-	public List<Map> commonQuery(String column, String table) {
-		List nameList = new ArrayList<String>();
-		List<Map> list = new ArrayList<>();
+	public List<Map<String,Object>> commonQuery(String column, String table) {
+		List<String> nameList = new ArrayList<String>();
+		List<Map<String,Object>> list = new ArrayList<>();
 		connect();
 		try {
 			result = stmt.executeQuery("select " + column + " from " + table + ";");
@@ -85,7 +85,7 @@ public class Connector {
 				nameList.add(columnName);
 			}
 			while (result.next()) {
-				Map map = new HashMap();
+				Map<String,Object> map = new HashMap<String,Object>();
 				for (int i = 1; i <= nameList.size(); i++) {
 					Object temp = result.getObject(i);
 					map.put(nameList.get(i - 1), temp);
@@ -104,9 +104,9 @@ public class Connector {
 	 * 通用连接方法,返回一个List<Map>，Map中存放的是列名和值。
 	 * 
 	 */
-	public List commonQuery(String column, String table, String where) {
-		List nameList = new ArrayList<String>();
-		List list = new ArrayList<>();
+	public List<Map<String,Object>> commonQuery(String column, String table, String where) {
+		List<String> nameList = new ArrayList<String>();
+		List<Map<String,Object>> list = new ArrayList<>();
 		connect();
 		try {
 			result = stmt.executeQuery("select " + column + " from " + table + " where " + where + ";");
@@ -117,7 +117,7 @@ public class Connector {
 				nameList.add(columnName);
 			}
 			while (result.next()) {
-				Map map = new HashMap();
+				Map<String,Object> map = new HashMap<String,Object>();
 				for (int i = 1; i <= nameList.size(); i++) {
 					Object temp = result.getObject(i);
 					map.put(nameList.get(i - 1), temp);
@@ -173,7 +173,7 @@ public class Connector {
 
 	public static void main(String[] args) {
 		Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagemrnt");
-		List<Map> list = conn.commonQuery("*", "MANAGEMENT");
+		List<Map<String,Object>> list = conn.commonQuery("*", "MANAGEMENT");
 		Management management=Management.getInstance(list.get(2));
 		
 		System.out.println(management);

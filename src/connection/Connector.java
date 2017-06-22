@@ -141,7 +141,46 @@ public class Connector {
 
 	}
 
-	
+	public void delete(String table, String where) {
+		connect();
+		try {
+			stmt.execute("delete from " + table + " where " + where);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		closeConnection();
+	}
+
+	public void update() {
+
+	}
+
+	public void insert(String table, Map<String, Object> map) {
+		connect();
+		String keys = "";
+		String values = "";
+		for (Map.Entry<String, Object> entry : map.entrySet()) {
+			keys+=entry.getKey();
+			keys+=",";
+			values+="'";
+			values+=entry.getValue();
+			values+="',";
+		}
+		
+		System.out.println(keys);
+		keys=keys.replaceAll(",$","");
+		values=values.replaceAll(",$","");
+		
+		System.out.println(keys);
+		System.out.println(values);
+		System.out.println("insert into " + table + "("+keys+") values " + "(" +values+ ");");
+		try {
+			stmt.execute("insert into " + table + "("+keys+") values " + "(" +values+ ");");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		closeConnection();
+	}
 
 	public void executeSql(String sql) {
 		connect();
@@ -153,17 +192,14 @@ public class Connector {
 		closeConnection();
 	}
 
-	
-
 	public static void main(String[] args) {
 		Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagemrnt");
-		// List<Map<String, Object>> list = conn.commonQuery("*", "STUDENT");
-		// Student student = Student.mapToStudent(list.get(1));
-		conn.query("*", "ADMINISTRATER");
+		Map map=new HashMap<>();
+		map.put("EMPNO", "20170000001");
+		map.put("SNO", "20151303001");
+		conn.insert("Management", map);
 	}
-	
-	
-	
+
 	/**
 	 * 通用连接方法,返回一个List<Map>，Map中存放的是列名和值。
 	 * 
@@ -227,6 +263,7 @@ public class Connector {
 		closeConnection();
 		return list;
 	}
+
 	/**
 	 * @function 连接数据库
 	 * 

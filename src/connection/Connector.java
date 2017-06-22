@@ -6,67 +6,73 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class Connector {
-    private String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private String dbURL = "jdbc:sqlserver://localhost:1433;DatabaseName=";
-    private String userName = "sa";
-    private String userPwd = "";
-    private Connection conn = null;
-    private ResultSet rs = null;
-    private PreparedStatement sql = null;
-    
-    public Connector(){
-        try {
-            Class.forName(this.driverName);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-    /**
-     * @function 连接数据库
-     * @param dataBaseName
-     * @return Connection
-     */
-    public Connection connect(String dataBaseName) {
-        try {
-            this.conn = DriverManager.getConnection(this.dbURL + dataBaseName, this.userName, this.userPwd);
-            System.out.println("Coneection complished!");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return this.conn;
-    }
-  
-    /**
-     * @function 关闭数据库连接
-     */
-    public void closeConnection() {
-        try {
-            this.conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+	public static final String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	public static final String dbURL = "jdbc:sqlserver://localhost:1433;DatabaseName=";
+	public static final String userName = "sa";
+	public static final String userPwd = "";
+	public static final String database = "DormManagement";
+	private Connection conn = null;
+	private ResultSet result = null;
+	private PreparedStatement sql = null;
 
-    public ResultSet getRs() {
-        return rs;
-    }
+	public Connector() {
+		try {
+			Class.forName(this.driverName);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 
-    public void setRs(ResultSet rs) {
-        this.rs = rs;
-    }
+	
 
-    public PreparedStatement getSql() {
-        return sql;
-    }
+	public ResultSet getResult() {
+		return result;
+	}
 
-    public void setSql(PreparedStatement sql) {
-        this.sql = sql;
-    }
+	public void setResult(ResultSet result) {
+		this.result = result;
+	}
 
-    public static void main(String[] args) {
-    	Connector conn=new Connector();
-    	conn.connect("test");
-    }
+	public PreparedStatement getSql() {
+		return sql;
+	}
+
+	public void setSql(PreparedStatement sql) {
+		this.sql = sql;
+	}
+	
+	/**
+	 * @function 连接数据库
+	 * 
+	 */
+	private void connect() {
+		try {
+			this.conn = DriverManager.getConnection(dbURL + database, userName, userPwd);
+			System.out.println("Coneection complished!");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @function 关闭数据库连接
+	 */
+	private void closeConnection() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+	public static void main(String[] args) {
+		Connector conn = new Connector();
+		conn.connect();
+	}
 }

@@ -27,7 +27,7 @@ public class Student {
 		SBNO = sBNO;
 		SDNO = sDNO;
 	}
-	public static Student getInstance(Map map){
+	public static Student mapToStudent(Map map){
 		Student student=new Student(
 				(String)map.get("SNO"),
 				(String)map.get("SSEX"),

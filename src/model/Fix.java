@@ -22,7 +22,7 @@ public class Fix {
 
 
 
-	public static Fix getInstance(Map map){
+	public static Fix mapToFix(Map map){
 		Fix fix=new Fix(
 				(String)map.get("FNAME"),
 				(String)map.get("EMPNO"),

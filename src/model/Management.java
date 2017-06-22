@@ -16,7 +16,7 @@ public class Management {
 		SNO = sNO;
 	}
 
-	public static Management getInstance(Map map){
+	public static Management mapToManagement(Map map){
 		Management management=new Management(
 				(String)map.get("EMPNO"),
 				(String)map.get("SNO"));

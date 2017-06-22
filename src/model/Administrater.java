@@ -27,7 +27,7 @@ public class Administrater{
 		EMPPASWD = eMPPASWD;
 	}
 	
-	public static Administrater getInstance(Map<String, Object> map){
+	public static Administrater mapToAdmin(Map<String, Object> map){
 		Administrater admin=new Administrater(
 				(String)map.get("EMPNO"),
 				(String)map.get("EMPID"),

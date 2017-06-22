@@ -17,7 +17,7 @@ public class Connector {
 	public static final String dbURL = "jdbc:sqlserver://localhost:1433;DatabaseName=";
 	public static final String userName = "sa";
 	public static final String userPwd = "";
-	public static final String database = "test";
+	public static final String database = "DormManagement";
 	private Connection conn = null;
 	private ResultSet result = null;
 	private Statement sql = null;
@@ -29,13 +29,40 @@ public class Connector {
 			e.printStackTrace();
 		}
 	}
-	
 	public List commonQuery(String column,String table){
 		List nameList=new ArrayList<String>();
 		List list=new ArrayList<>();
 		connect();
 		try {
 			result=sql.executeQuery("select "+column+" from "+table+";");
+			ResultSetMetaData rsmd=result.getMetaData();
+			int columnCount=rsmd.getColumnCount();
+			for(int i=1;i<=columnCount;i++){
+				String columnName=rsmd.getColumnName(i);
+				nameList.add(columnName);
+			}
+			while(result.next()){
+				Map map=new HashMap();
+				for(int i=1;i<=nameList.size();i++){
+					Object temp=result.getObject(i);
+					map.put(nameList.get(i-1), temp);
+				}
+				list.add(map);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		closeConnection();
+		return list;
+	}
+	
+	public List commonQuery(String column,String table,String where){
+		List nameList=new ArrayList<String>();
+		List list=new ArrayList<>();
+		connect();
+		try {
+			result=sql.executeQuery("select "+column+" from "+table+" where "+where+";");
 			ResultSetMetaData rsmd=result.getMetaData();
 			int columnCount=rsmd.getColumnCount();
 			for(int i=1;i<=columnCount;i++){
@@ -80,6 +107,8 @@ public class Connector {
 		this.sql = sql;
 	}
 	
+	
+	
 	/**
 	 * @function 连接数据库
 	 * 
@@ -110,6 +139,7 @@ public class Connector {
 
 	public static void main(String[] args) {
 		Connector conn = new Connector();
-		conn.commonQuery("*", "one");
+		List list=conn.commonQuery("*", "one");
+		System.out.println(list);
 	}
 }

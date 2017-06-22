@@ -3,7 +3,7 @@ package model;
 import java.util.Date;
 import java.util.Map;
 
-public class Management {
+public class Management extends Model{
 	private String EMPNO;
 	private String SNO;
 	
@@ -15,8 +15,14 @@ public class Management {
 		EMPNO = eMPNO;
 		SNO = sNO;
 	}
+	
+	public Management(Map map){
+		EMPNO=(String)map.get("EMPNO");
+		SNO=(String)map.get("SNO");
+	}
+	
 
-	public static Management mapToManagement(Map map){
+	public static Management toModel(Map map){
 		Management management=new Management(
 				(String)map.get("EMPNO"),
 				(String)map.get("SNO"));

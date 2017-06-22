@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public class Administrater{
+public class Administrater extends Model{
 	private String EMPNO;
 	private String EMPID;
 	private String EMPNAME;
@@ -13,6 +13,16 @@ public class Administrater{
 	
 	public Administrater(){
 		
+	}
+	
+	public Administrater(Map<String, Object> map){
+		EMPNO = (String)map.get("EMPNO");
+		EMPID = (String)map.get("EMPID");
+		EMPNAME = (String)map.get("EMPNAME");
+		EMPSEX = (String)map.get("EMPSEX");
+		EMPJOB = (String)map.get("EMPJOB");
+		EMPPHONE = (String)map.get("EMPPHONE");
+		EMPPASWD = (String)map.get("EMPPASWD");
 	}
 	
 	public Administrater(String eMPNO, String eMPID, String eMPNAME, String eMPSEX, String eMPJOB, String eMPPHONE,
@@ -27,7 +37,7 @@ public class Administrater{
 		EMPPASWD = eMPPASWD;
 	}
 	
-	public static Administrater mapToAdmin(Map<String, Object> map){
+	public static Administrater toModel(Map<String, Object> map){
 		Administrater admin=new Administrater(
 				(String)map.get("EMPNO"),
 				(String)map.get("EMPID"),

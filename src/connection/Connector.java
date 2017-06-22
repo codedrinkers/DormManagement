@@ -1,5 +1,6 @@
 package connection;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,9 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import model.Administrater;
+import model.Fix;
 import model.Management;
-
+import model.Model;
+import model.Student;
 
 public class Connector {
 	public static final String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -68,13 +71,106 @@ public class Connector {
 
 	}
 
+	public List<Model> query(String column, String table) {
+		List<Map<String, Object>> temp = commonQuery(column, table);
+		List<Model> list = new ArrayList<Model>();
+		Model model;
+		switch (table) {
+		case "ADMINISTRATER":
+			for (Map map : temp) {
+				model = new Administrater(map);
+				list.add(model);
+			}
+			break;
+		case "FIX":
+			for (Map map : temp) {
+				model = new Fix(map);
+				list.add(model);
+			}
+			break;
+		case "MANAGEMENT":
+			for (Map map : temp) {
+				model = new Management(map);
+				list.add(model);
+			}
+			break;
+		case "STUDENT":
+			for (Map map : temp) {
+				model = new Student(map);
+				list.add(model);
+			}
+			break;
+
+		}
+		return list;
+
+	}
+
+	public List<Model> query(String column, String table, String where) {
+		List<Map<String, Object>> temp = commonQuery(column, table, where);
+		List<Model> list = new ArrayList<Model>();
+		Model model;
+		switch (table) {
+		case "ADMINISTRATER":
+			for (Map map : temp) {
+				model = new Administrater(map);
+				list.add(model);
+			}
+			break;
+		case "FIX":
+			for (Map map : temp) {
+				model = new Fix(map);
+				list.add(model);
+			}
+			break;
+		case "MANAGEMENT":
+			for (Map map : temp) {
+				model = new Management(map);
+				list.add(model);
+			}
+			break;
+		case "STUDENT":
+			for (Map map : temp) {
+				model = new Student(map);
+				list.add(model);
+			}
+			break;
+
+		}
+		return list;
+
+	}
+
+	
+
+	public void executeSql(String sql) {
+		connect();
+		try {
+			stmt.execute(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		closeConnection();
+	}
+
+	
+
+	public static void main(String[] args) {
+		Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagemrnt");
+		// List<Map<String, Object>> list = conn.commonQuery("*", "STUDENT");
+		// Student student = Student.mapToStudent(list.get(1));
+		conn.query("*", "ADMINISTRATER");
+	}
+	
+	
+	
 	/**
 	 * 通用连接方法,返回一个List<Map>，Map中存放的是列名和值。
 	 * 
 	 */
-	public List<Map<String,Object>> commonQuery(String column, String table) {
+	private List<Map<String, Object>> commonQuery(String column, String table) {
 		List<String> nameList = new ArrayList<String>();
-		List<Map<String,Object>> list = new ArrayList<>();
+		List<Map<String, Object>> list = new ArrayList<>();
 		connect();
 		try {
 			result = stmt.executeQuery("select " + column + " from " + table + ";");
@@ -85,7 +181,7 @@ public class Connector {
 				nameList.add(columnName);
 			}
 			while (result.next()) {
-				Map<String,Object> map = new HashMap<String,Object>();
+				Map<String, Object> map = new HashMap<String, Object>();
 				for (int i = 1; i <= nameList.size(); i++) {
 					Object temp = result.getObject(i);
 					map.put(nameList.get(i - 1), temp);
@@ -104,9 +200,9 @@ public class Connector {
 	 * 通用连接方法,返回一个List<Map>，Map中存放的是列名和值。
 	 * 
 	 */
-	public List<Map<String,Object>> commonQuery(String column, String table, String where) {
+	private List<Map<String, Object>> commonQuery(String column, String table, String where) {
 		List<String> nameList = new ArrayList<String>();
-		List<Map<String,Object>> list = new ArrayList<>();
+		List<Map<String, Object>> list = new ArrayList<>();
 		connect();
 		try {
 			result = stmt.executeQuery("select " + column + " from " + table + " where " + where + ";");
@@ -117,7 +213,7 @@ public class Connector {
 				nameList.add(columnName);
 			}
 			while (result.next()) {
-				Map<String,Object> map = new HashMap<String,Object>();
+				Map<String, Object> map = new HashMap<String, Object>();
 				for (int i = 1; i <= nameList.size(); i++) {
 					Object temp = result.getObject(i);
 					map.put(nameList.get(i - 1), temp);
@@ -131,20 +227,6 @@ public class Connector {
 		closeConnection();
 		return list;
 	}
-	
-	public void executeSql(String sql){
-		connect();
-		try {
-			stmt.execute(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		closeConnection();
-	}
-	
-
-	
-
 	/**
 	 * @function 连接数据库
 	 * 
@@ -169,13 +251,5 @@ public class Connector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagemrnt");
-		List<Map<String,Object>> list = conn.commonQuery("*", "MANAGEMENT");
-		Management management=Management.getInstance(list.get(2));
-		
-		System.out.println(management);
 	}
 }

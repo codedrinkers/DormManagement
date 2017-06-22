@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public class Student {
+public class Student extends Model{
 	private String SNO;
 	private String SSEX;
 	private String SNAME;
@@ -27,7 +27,18 @@ public class Student {
 		SBNO = sBNO;
 		SDNO = sDNO;
 	}
-	public static Student mapToStudent(Map map){
+	public Student(Map map) {
+		SNO=(String)map.get("SNO");
+		SSEX=(String)map.get("SSEX");
+		SNAME=(String)map.get("SNAME");
+		SMAJOR=(String)map.get("SMAJOR");
+		SGRADE=(String)map.get("SGRADE");
+		SCLASS=(String)map.get("SCLASS");
+		SBNO=(String)map.get("SBNO");
+		SDNO=(String)map.get("SDNO");
+	}
+	
+	public static Student toModel(Map map){
 		Student student=new Student(
 				(String)map.get("SNO"),
 				(String)map.get("SSEX"),

@@ -16,7 +16,6 @@ public class Student {
 		
 	}
 	
-	
 	public Student(String sNO, String sSEX, String sNAME, String sMAJOR, String sGRADE, String sCLASS, String sBNO,
 			String sDNO) {
 		SNO = sNO;

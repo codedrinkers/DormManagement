@@ -175,6 +175,7 @@ public class Connector {
 		Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagemrnt");
 		List<Map> list = conn.commonQuery("*", "MANAGEMENT");
 		Management management=Management.getInstance(list.get(2));
+		
 		System.out.println(management);
 	}
 }

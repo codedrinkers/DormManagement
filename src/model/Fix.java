@@ -13,7 +13,6 @@ public class Fix {
 		
 	}
 	
-	
 	public Fix(String fNAME, String eMPNO, String sNO, Date fDATE) {
 		FNAME = fNAME;
 		EMPNO = eMPNO;

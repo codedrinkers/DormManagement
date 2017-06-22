@@ -11,7 +11,6 @@ public class Management {
 	}
 	
 	
-	
 	public Management(String eMPNO, String sNO) {
 		EMPNO = eMPNO;
 		SNO = sNO;
@@ -23,7 +22,6 @@ public class Management {
 				(String)map.get("SNO"));
 		return management;
 	}
-	
 	
 
 

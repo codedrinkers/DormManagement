@@ -1,4 +1,4 @@
-ï»¿package ui;
+package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,11 +51,10 @@ public class MainFrame extends JFrame implements ActionListener {
     private JTextField jTextField12;
     private Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagement");
     private List tmp;
-    private String[] name = { "å­¦å·", "æ€§åˆ«", "å§“å", "ä¸“ä¸š", "å…¥å­¦å¹´ä»½", "ç­çº§", "æ¥¼å·", "å®¿èˆå·", };
-    private String[] title = { "SNO", "SSEX", "SNAME", "SMAJOR", "SGRADE", "SCLASS", "SBNO", "SDNO", };
+    private String[] name = { "Ñ§ºÅ", "ÐÔ±ð", "ÐÕÃû", "×¨Òµ", "ÈëÑ§Äê·Ý", "°à¼¶", "Â¥ºÅ", "ËÞÉáºÅ", };
 
     public MainFrame() {
-        super("å®¿èˆç®¡ç†ç³»ç»Ÿ");
+        super("ËÞÉá¹ÜÀíÏµÍ³");
         initComponents();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -101,31 +100,31 @@ public class MainFrame extends JFrame implements ActionListener {
         jLabel6 = new JLabel();
         jLabel1 = new JLabel();
 
-        jTabbedPane1.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 12));
+        jTabbedPane1.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 12));
 
-        jLabel2.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel2.setText("æŒ‰å§“åæŸ¥è¯¢ï¼š");
+        jLabel2.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel2.setText("°´ÐÕÃû²éÑ¯£º");
 
-        jButton1.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 18));
-        jButton1.setText("æŸ¥è¯¢");
+        jButton1.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 18));
+        jButton1.setText("²éÑ¯");
 
-        jLabel3.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel3.setText("æŒ‰å­¦å·æŸ¥è¯¢ï¼š");
+        jLabel3.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel3.setText("°´Ñ§ºÅ²éÑ¯£º");
 
-        jButton2.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 18));
-        jButton2.setText("æŸ¥è¯¢");
+        jButton2.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 18));
+        jButton2.setText("²éÑ¯");
 
-        jLabel4.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel4.setText("æŒ‰å¹´çº§æŸ¥è¯¢ï¼š");
+        jLabel4.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel4.setText("°´Äê¼¶²éÑ¯£º");
 
-        jButton3.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 18));
-        jButton3.setText("æŸ¥è¯¢");
+        jButton3.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 18));
+        jButton3.setText("²éÑ¯");
 
-        jLabel5.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel5.setText("æŒ‰å®¿èˆæŸ¥è¯¢ï¼š");
+        jLabel5.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel5.setText("°´ËÞÉá²éÑ¯£º");
 
-        jButton4.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 18));
-        jButton4.setText("æŸ¥è¯¢");
+        jButton4.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 18));
+        jButton4.setText("²éÑ¯");
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,42 +179,42 @@ public class MainFrame extends JFrame implements ActionListener {
                                 .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                         .addGap(63, 63, 63)));
 
-        jTabbedPane1.addTab("æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯", jPanel1);
+        jTabbedPane1.addTab("²éÑ¯Ñ§ÉúÐÅÏ¢", jPanel1);
 
-        jButton5.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 18));
-        jButton5.setText("æäº¤");
+        jButton5.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 18));
+        jButton5.setText("Ìá½»");
         jButton5.setPreferredSize(new java.awt.Dimension(80, 30));
 
-        jButton6.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 18));
-        jButton6.setText("é‡ç½®");
+        jButton6.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 18));
+        jButton6.setText("ÖØÖÃ");
         jButton6.setPreferredSize(new java.awt.Dimension(80, 30));
 
-        jLabel8.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel8.setText("å­¦å·ï¼š");
+        jLabel8.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel8.setText("Ñ§ºÅ£º");
 
-        jLabel14.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel14.setText("æ€§åˆ«ï¼š");
+        jLabel14.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel14.setText("ÐÔ±ð£º");
 
-        jLabel15.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel15.setText("*ç­çº§ï¼š");
+        jLabel15.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel15.setText("*°à¼¶£º");
 
-        jLabel16.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel16.setText("æ¥¼å·ï¼š");
+        jLabel16.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel16.setText("Â¥ºÅ£º");
 
-        jLabel17.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel17.setText("ä¸“ä¸šï¼š");
+        jLabel17.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel17.setText("×¨Òµ£º");
 
-        jLabel18.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel18.setText("å§“åï¼š");
+        jLabel18.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel18.setText("ÐÕÃû£º");
 
-        jLabel19.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel19.setText("å…¥å­¦å¹´ä»½ï¼š");
+        jLabel19.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel19.setText("ÈëÑ§Äê·Ý£º");
 
-        jLabel20.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 14));
-        jLabel20.setText("å®¿èˆå·ï¼š");
+        jLabel20.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 14));
+        jLabel20.setText("ËÞÉáºÅ£º");
 
-        jLabel6.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 0, 16));
-        jLabel6.setText("è¯·å½•å…¥å­¦ç”Ÿä¿¡æ¯ï¼ˆ*å¯ä»¥ä¸ºç©ºï¼‰");
+        jLabel6.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 0, 16));
+        jLabel6.setText("ÇëÂ¼ÈëÑ§ÉúÐÅÏ¢£¨*¿ÉÒÔÎª¿Õ£©");
 
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -317,10 +316,10 @@ public class MainFrame extends JFrame implements ActionListener {
                                 .addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap()));
 
-        jTabbedPane1.addTab("å¢žåŠ å­¦ç”Ÿä¿¡æ¯", jPanel4);
+        jTabbedPane1.addTab("Ôö¼ÓÑ§ÉúÐÅÏ¢", jPanel4);
 
-        jLabel1.setFont(new java.awt.Font("å¾®è½¯é›…é»‘", 1, 18));
-        jLabel1.setText("å®¿èˆä¿¡æ¯ç®¡ç†ç³»ç»Ÿ");
+        jLabel1.setFont(new java.awt.Font("Î¢ÈíÑÅºÚ", 1, 18));
+        jLabel1.setText("ËÞÉáÐÅÏ¢¹ÜÀíÏµÍ³");
 
         jButton1.setFocusable(false);
         jButton2.setFocusable(false);
@@ -356,35 +355,17 @@ public class MainFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String[][] temp;
-        int mark = -1;
-        String register = null;
+        if (e.getSource() == jButton1) {// °´Ñ§ºÅ²éÑ¯
 
-        if (e.getSource() == jButton1) {// æŒ‰å­¦å·æŸ¥è¯¢
-            register = jTextField3.getText();
-            mark = 0;
+            System.out.println(jTextField3.getText());
 
-        }
-        if (e.getSource() == jButton2) { // æŒ‰å§“åæŸ¥è¯¢
-            register = "'"+jTextField1.getText()+"'";
-            mark = 2;
-        }
-        if (e.getSource() == jButton3) {// å¹´çº§
-            register = jTextField2.getText();
-            mark = 4;
-        }
-        if (e.getSource() == jButton4) {// å®¿èˆ
-            register = jTextField4.getText();
-            mark = 7;
-        }
-        if (mark != -1) {
-            System.out.println(register);
-
-            if (!"".equals(register)) {
+            if (!"".equals(jTextField3.getText())) {
                 try {
-                    tmp = conn.query("*", "STUDENT", title[mark] + " = " + register);
+                    tmp = conn.query("SNO,SSEX,SNAME,SMAJOR,SGRADE,SCLASS,SBNO,SDNO", "STUDENT",
+                            "SNO = " + jTextField3.getText());
                 } catch (SQLException e1) {
                     e1.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "æ²¡æœ‰äºº", "è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Ã»ÓÐ´ËÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
                 }
 
                 if (tmp.size() > 0) {
@@ -397,23 +378,110 @@ public class MainFrame extends JFrame implements ActionListener {
                     SelectFrame tmp = new SelectFrame(temp, name);
                     tmp.setLocationRelativeTo(this);
                 } else {
-                    JOptionPane.showMessageDialog(null, "æ²¡æœ‰äºº", "è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Ã»ÓÐ´ËÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "è¯·å¡«å†™å†…å®¹", "è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "ÇëÌîÐ´ÄÚÈÝ", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
             }
             temp = null;
-            mark = -1;
         }
+        if (e.getSource() == jButton2) { // °´ÐÕÃû²éÑ¯
+
+            System.out.println(jTextField1.getText());
+
+            if (!"".equals(jTextField1.getText())) {
+                try {
+                    tmp = conn.query("SNO,SSEX,SNAME,SMAJOR,SGRADE,SCLASS,SBNO,SDNO", "STUDENT",
+                            "SNAME = " + jTextField1.getText());
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Ã»ÓÐ´ËÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+                }
+
+                if (tmp.size() > 0) {
+                    temp = new String[tmp.size()][];
+
+                    for (int i = 0; i < tmp.size(); i++) {
+                        temp[i] = ((Student) tmp.get(i)).toArray();
+                    }
+
+                    SelectFrame tmp = new SelectFrame(temp, name);
+                    tmp.setLocationRelativeTo(this);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ã»ÓÐ´ËÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ÇëÌîÐ´ÄÚÈÝ", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+            }
+            temp = null;
+        }
+        if (e.getSource() == jButton3) {// Äê¼¶
+            System.out.println(jTextField2.getText());
+
+            if (!"".equals(jTextField2.getText())) {
+                try {
+                    tmp = conn.query("SNO,SSEX,SNAME,SMAJOR,SGRADE,SCLASS,SBNO,SDNO", "STUDENT",
+                            "SGRADE = " + jTextField2.getText());
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "¸ÃÄê¼¶Ã»ÓÐÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+                }
+
+                if (tmp.size() > 0) {
+                    temp = new String[tmp.size()][];
+
+                    for (int i = 0; i < tmp.size(); i++) {
+                        temp[i] = ((Student) tmp.get(i)).toArray();
+                    }
+
+                    SelectFrame tmp = new SelectFrame(temp, name);
+                    tmp.setLocationRelativeTo(this);
+                } else {
+                    JOptionPane.showMessageDialog(null, "¸ÃÄê¼¶Ã»ÓÐÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ÇëÌîÐ´ÄÚÈÝ", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+            }
+            temp = null;
+        }
+        if (e.getSource() == jButton4) {// ËÞÉá
+            System.out.println(jTextField4.getText());
+
+            if (!"".equals(jTextField4.getText())) {
+                try {
+                    tmp = conn.query("*", "STUDENT", "SDNO = " + jTextField4.getText());
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "¸ÃËÞÉáÃ»ÓÐÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+                }
+
+                if (tmp.size() > 0) {
+                    temp = new String[tmp.size()][];
+
+                    for (int i = 0; i < tmp.size(); i++) {
+                        temp[i] = ((Student) tmp.get(i)).toArray();
+                    }
+
+                    SelectFrame tmp = new SelectFrame(temp, name);
+                    tmp.setLocationRelativeTo(this);
+                } else {
+                    JOptionPane.showMessageDialog(null, "¸ÃËÞÉáÃ»ÓÐÈË", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "ÇëÌîÐ´ÄÚÈÝ", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
+            }
+            temp = null;
+        }
+
         if (e.getSource() == jButton5) {
-            System.out.println("å­¦å·" + jTextField5.getText());
-            System.out.println("å§“å" + jTextField9.getText());
-            System.out.println("æ€§åˆ«" + jTextField6.getText());
-            System.out.println("ä¸“ä¸š" + jTextField10.getText());
-            System.out.println("ç­çº§" + jTextField8.getText());
-            System.out.println("å…¥å­¦å¹´ä»½" + jTextField12.getText());
-            System.out.println("æ¥¼å·" + jTextField7.getText());
-            System.out.println("å®¿èˆå·" + jTextField11.getText());
+            System.out.println("Ñ§ºÅ" + jTextField5.getText());
+            System.out.println("ÐÕÃû" + jTextField9.getText());
+            System.out.println("ÐÔ±ð" + jTextField6.getText());
+            System.out.println("×¨Òµ" + jTextField10.getText());
+            System.out.println("°à¼¶" + jTextField8.getText());
+            System.out.println("ÈëÑ§Äê·Ý" + jTextField12.getText());
+            System.out.println("Â¥ºÅ" + jTextField7.getText());
+            System.out.println("ËÞÉáºÅ" + jTextField11.getText());
             if (!("".equals(jTextField5.getText()) || "".equals(jTextField9.getText())
                     || "".equals(jTextField6.getText()) || "".equals(jTextField10.getText())
                     || "".equals(jTextField12.getText()) || "".equals(jTextField7.getText())
@@ -427,10 +495,8 @@ public class MainFrame extends JFrame implements ActionListener {
                 stu.setSGRADE(jTextField12.getText());
                 stu.setSBNO(jTextField7.getText());
                 stu.setSDNO(jTextField11.getText());
-                conn.insert(stu);
-                JOptionPane.showMessageDialog(null, "å¢žåŠ æˆåŠŸ", "è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "è¯·å¡«å†™å†…å®¹", "è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "ÇëÌîÐ´ÄÚÈÝ", "¾¯¸æ", JOptionPane.WARNING_MESSAGE);
             }
         }
         if (e.getSource() == jButton6) {

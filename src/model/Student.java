@@ -11,7 +11,7 @@ public class Student{
 	private String SCLASS;
 	private String SBNO;
 	private String SDNO;
-	
+
 	public Student(){
 		
 	}
@@ -59,7 +59,10 @@ public class Student{
 				+ SGRADE + ", SCLASS=" + SCLASS + ", SBNO=" + SBNO + ", SDNO=" + SDNO + "]";
 	}
 
-
+	public String[] toArray(){
+	    String[] tmp = {this.SNO,this.SSEX,this.SNAME,this.SMAJOR,this.SGRADE,this.SCLASS,this.SBNO,this.SDNO};	    
+	    return tmp;
+	}
 	public String getSNO() {
 		return SNO;
 	}

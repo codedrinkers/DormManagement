@@ -98,8 +98,5 @@ public class Administrater {
 	}
 	public void setEMPPASWD(String eMPPASWD) {
 		EMPPASWD = eMPPASWD;
-	}
-	
-	
-	
+	}	
 }

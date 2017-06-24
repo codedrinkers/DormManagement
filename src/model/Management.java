@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Date;
 import java.util.Map;
 
 public class Management {
@@ -50,7 +49,5 @@ public class Management {
 	public void setSNO(String sNO) {
 		SNO = sNO;
 	}
-	
-	
 
 }

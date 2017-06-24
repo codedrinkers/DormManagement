@@ -3,7 +3,7 @@ package model;
 import java.util.Date;
 import java.util.Map;
 
-public class Fix extends Model {
+public class Fix  {
 	private String FNAME;
 	private String EMPNO;
 	private String SNO;

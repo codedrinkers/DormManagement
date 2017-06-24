@@ -3,7 +3,7 @@ package model;
 import java.util.Date;
 import java.util.Map;
 
-public class Management extends Model{
+public class Management {
 	private String EMPNO;
 	private String SNO;
 	

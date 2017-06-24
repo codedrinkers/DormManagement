@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public class Administrater extends Model{
+public class Administrater {
 	private String EMPNO;
 	private String EMPID;
 	private String EMPNAME;

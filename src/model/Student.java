@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public class Student extends Model{
+public class Student{
 	private String SNO;
 	private String SSEX;
 	private String SNAME;

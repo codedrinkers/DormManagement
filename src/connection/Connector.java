@@ -15,7 +15,6 @@ import java.util.Map;
 import model.Administrater;
 import model.Fix;
 import model.Management;
-import model.Model;
 import model.Student;
 
 public class Connector {
@@ -71,33 +70,33 @@ public class Connector {
 
 	}
 
-	public List<Model> query(String column, String table) {
+	public List query(String column, String table) {
 		List<Map<String, Object>> temp = commonQuery(column, table);
-		List<Model> list = new ArrayList<Model>();
-		Model model;
+		List list = new ArrayList();
+	
 		switch (table) {
 		case "ADMINISTRATER":
 			for (Map map : temp) {
-				model = new Administrater(map);
-				list.add(model);
+				Administrater admin = new Administrater(map);
+				list.add(admin);
 			}
 			break;
 		case "FIX":
 			for (Map map : temp) {
-				model = new Fix(map);
-				list.add(model);
+				Fix fix = new Fix(map);
+				list.add(fix);
 			}
 			break;
 		case "MANAGEMENT":
 			for (Map map : temp) {
-				model = new Management(map);
-				list.add(model);
+				Management management = new Management(map);
+				list.add(management);
 			}
 			break;
 		case "STUDENT":
 			for (Map map : temp) {
-				model = new Student(map);
-				list.add(model);
+				Student student = new Student(map);
+				list.add(student);
 			}
 			break;
 
@@ -106,33 +105,33 @@ public class Connector {
 
 	}
 
-	public List<Model> query(String column, String table, String where) {
+	public List query(String column, String table, String where) {
 		List<Map<String, Object>> temp = commonQuery(column, table, where);
-		List<Model> list = new ArrayList<Model>();
-		Model model;
+		List list = new ArrayList();
+		
 		switch (table) {
 		case "ADMINISTRATER":
 			for (Map map : temp) {
-				model = new Administrater(map);
-				list.add(model);
+				Administrater admin = new Administrater(map);
+				list.add(admin);
 			}
 			break;
 		case "FIX":
 			for (Map map : temp) {
-				model = new Fix(map);
-				list.add(model);
+				Fix fix = new Fix(map);
+				list.add(fix);
 			}
 			break;
 		case "MANAGEMENT":
 			for (Map map : temp) {
-				model = new Management(map);
-				list.add(model);
+				Management management = new Management(map);
+				list.add(management);
 			}
 			break;
 		case "STUDENT":
 			for (Map map : temp) {
-				model = new Student(map);
-				list.add(model);
+				Student student = new Student(map);
+				list.add(student);
 			}
 			break;
 
@@ -152,7 +151,9 @@ public class Connector {
 	}
 
 	public void update() {
+		connect();
 
+		closeConnection();
 	}
 
 	public void insert(String table, Map<String, Object> map) {
@@ -194,10 +195,9 @@ public class Connector {
 
 	public static void main(String[] args) {
 		Connector conn = new Connector("jdbc:sqlserver://localhost:1433;DatabaseName=", "sa", "", "DormManagemrnt");
-		Map map=new HashMap<>();
-		map.put("EMPNO", "20170000001");
-		map.put("SNO", "20151303001");
-		conn.insert("Management", map);
+		List<Administrater> list=(List<Administrater>)conn.query("*", "Administrater");
+		
+		
 	}
 
 	/**
